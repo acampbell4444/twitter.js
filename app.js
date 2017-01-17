@@ -13,6 +13,7 @@ app.use('/special',function (req, res, next) {
 	res.status(200).send('welcome to the Special Zone!')
 	next();
 })
+
 app.use(function (req, res, next) {
 	console.log(chalk.green(req.method, req.path, res.statusCode)) 
 	next();
