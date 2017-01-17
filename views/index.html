@@ -12,22 +12,32 @@
       100 followers
     </div>
     <div class="col-md-9">
+
+    {% if showForm %}
+ 
+  <form action="/tweets" method="POST">
+    <label for="name_field">Name:</label>
+  
+    <input name="name" type="text" id="name_field" value="{{username}}"/>
+          
+ 
+
+    <label for="text_field">Text:</label>
+    <input name="text" type="text" id="text_field" style="width: 350px;" />
+
+    <input type="submit" value="Submit" />
+  </form>
+{% endif %}
     
     <h3>All Tweets</h3>
       {% for tweet in tweets %}
 		<li>
         	<img class='user-image' src='https://placehold.it/50x50'>
- 			<p class = 'name'>{{tweet.name}}</p>
+ 			<a href="/users/{{tweet.name}}">{{tweet.name}}</a> 
         	<p class='content'>{{tweet.content}}</p>
         	<a href=''>ReTweet</a>
-
-
-  			<a href="/users/{{tweet.name}}">{{tweet.name}}</a> 
-
-        
-
-
-
+        	<a class='link' href='/tweets/{{tweet.id}}'>Tweet Id: {{tweet.id}}</a>
+  			
         </li>
     {% endfor %}
       

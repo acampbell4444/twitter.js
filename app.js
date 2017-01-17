@@ -3,13 +3,16 @@ const chalk = require('chalk');
 const nunjucks = require('nunjucks')
 const app = express();
 const routes = require('./routes/');
+const bodyParser = require('body-parser');
+const socketio = require('socket.io')
 
 
 app.set('view engine', 'html'); // have res.render work with html files
 nunjucks.configure('views',{noCache: true}); // point nunjucks to the proper directory for templates
 app.engine('html', nunjucks.render); // when giving html files to res.render, tell it to use nunjucks
 
-app.use('/', routes); //next ?
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use('/', routes(io)); //next ?
 
 app.use(express.static('public'))
 
@@ -23,6 +26,11 @@ app.use(function (req, res, next) {
 	console.log(chalk.green(req.method, req.path, res.statusCode)) 
 	next();
 })
+
+app.post('/tweets', function(req, res){
+	console.log('jyyeye')
+	res.status(200)
+});
 
 // app.get('/stylesheets/style.css', function(req, res){
 
@@ -43,4 +51,7 @@ app.get('/news', function(req, res){
   	res.status(200).send('welcome to the news page!')
 });
 
-app.listen(3000)
+
+var server = app.listen(3000);
+var io = socketio.listen(server);
+exports.io = io
