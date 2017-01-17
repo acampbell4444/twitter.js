@@ -13,10 +13,23 @@
     </div>
     <div class="col-md-9">
     
-      <!-- display tweets here -->
+    <h3>All Tweets</h3>
       {% for tweet in tweets %}
-        <li>{{tweet.content}}</li>
-      {% endfor %}
+		<li>
+        	<img class='user-image' src='https://placehold.it/50x50'>
+ 			<p class = 'name'>{{tweet.name}}</p>
+        	<p class='content'>{{tweet.content}}</p>
+        	<a href=''>ReTweet</a>
+
+
+  			<a href="/users/{{tweet.name}}">{{tweet.name}}</a> 
+
+        
+
+
+
+        </li>
+    {% endfor %}
       
     </div>
   </div>
