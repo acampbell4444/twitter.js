@@ -7,6 +7,7 @@ var id = 0
 
 function add (name, content) {
   data.push({ name: name, content: content, id: id++ });
+  return data[data.length-1]
   
 }
 

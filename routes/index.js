@@ -28,8 +28,8 @@ module.exports = function (io) {
   router.post('/tweets', function(req, res) {
     var name = req.body.name;
     var text = req.body.text;
-    tweetBank.add(name, text);
-    socket.io.emit('newTweet', { name,text });
+    var info =tweetBank.add(name, text);
+    socket.io.emit('newTweet', info);
     res.redirect('/');
   });
   return router
