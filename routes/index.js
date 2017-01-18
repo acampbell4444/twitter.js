@@ -30,6 +30,7 @@ module.exports = function (io) {
     var text = req.body.text;
     var info =tweetBank.add(name, text);
     socket.io.emit('newTweet', info);
+    // res.render( 'index', { tweets: tweetBank.list() } );
     res.redirect('/');
   });
   return router

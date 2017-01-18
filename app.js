@@ -16,7 +16,7 @@ app.use('/', routes(io)); //next ?
 
 app.use(express.static('public'))
 
-app.use('/special',function (req, res, next) {
+app.use('/tweets',function (req, res, next) {
 	console.log(chalk.blue.bgRed.bold("You're in the Special Zone!"))
 	res.status(200).send('welcome to the Special Zone!')
 	next();
@@ -27,10 +27,11 @@ app.use(function (req, res, next) {
 	next();
 })
 
-app.post('/tweets', function(req, res){
-	console.log('jyyeye')
-	res.status(200)
-});
+// app.post('/tweets', function(req, res){
+// 	alert('yo')
+// 	console.log('jyyeye')
+// 	res.status(200)
+// });
 
 // app.get('/stylesheets/style.css', function(req, res){
 

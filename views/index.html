@@ -30,19 +30,20 @@
 {% endif %}
     
     <h3>All Tweets</h3>
-    <ul id = 'tweetList'>
-      {% for tweet in tweets %}
-		<li>
-        	<img class='user-image' src='https://placehold.it/50x50'>
- 			    <a href="/users/{{tweet.name}}">{{tweet.name}}</a> 
-        	<p class='content'>{{tweet.content}}</p>
-        	<a href=''>ReTweet</a>
-        	<a class='link' href='/tweets/{{tweet.id}}'>Tweet Id: {{tweet.id}}</a>
-  			
-        </li>
-    {% endfor %}
-    </ul>
-      
+    <div id='house'>
+      <ul id = 'tweetList'>
+        {% for tweet in tweets %}
+  		<li>
+          	<img class='user-image' src='https://placehold.it/50x50'>
+   			    <a href="/users/{{tweet.name}}">{{tweet.name}}</a> 
+          	<p class='content'>{{tweet.content}}</p>
+          	<a href=''>ReTweet</a>
+          	<a class='link' href='/tweets/{{tweet.id}}'>Tweet Id: {{tweet.id}}</a>
+    			
+          </li>
+      {% endfor %}
+      </ul>
+    </div>
     </div>
   </div>
     
